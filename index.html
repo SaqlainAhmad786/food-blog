@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Frycuisine | Blogs</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Splide CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"> -->
+    <!-- <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"> -->
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+            width: 100%;
+            height: 100dvh;
+        }
+
+        .modal .img-cont {
+            height: 100%;
+        }
+
+        .modal .img-cont img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .modal-container {
+            position: relative;
+            height: 100%;
+        }
+
+
+        .model-text-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 90%;
+        }
+
+        .modal .hero-text {
+            color: white;
+            font-weight: 700;
+            font-size: 48px;
+        }
+
+        .modal .hero-subtext {
+            color: white;
+        }
+
+        .modal .inputCont {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .modal input {
+            width: 100%;
+            max-width: 280px;
+        }
+
+        .closeBtnCont {
+            position: absolute;
+            top: 10%;
+            right: 10%;
+            z-index: 1000;
+        }
+
+        .closeBtn {
+            all: unset !important;
+            cursor: pointer;
+        }
+
+        .closeBtn img {
+            height: 28px;
+            width: 28px;
+        }
+
+        .hideScrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hideScrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .splide {
+            margin-bottom: 40px;
+        }
+
+        .category-section {
+            width: 100%;
+            overflow-x: scroll;
+            display: flex;
+            gap: 20px;
+        }
+
+        .category-card {
+            text-align: center;
+            width: 140px;
+            height: 100%;
+        }
+
+        .category-card .imgCont {
+            width: 140px;
+            height: 140px;
+            border-radius: 100vh;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .category-card p {
+            font-weight: 300;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div class="modal">
+        <div class="modal-container">
+            <div class="img-cont">
+                <img src="https://bgfoods.com/wp-content/uploads/who-we-are-2x.jpg" alt="">
+            </div>
+            <div class="model-text-content">
+                <p class="hero-text">Never miss a recipe!</p>
+                <p class="hero-subtext">Join thousands of TinySalt subscribers and get our best recipes delivered each
+                    week!</p>
+                <div class="inputCont">
+                    <input type="text" placeholder="Enter your Email address">
+                    <button>SUBSCRIBE</button>
+                </div>
+            </div>
+            <div class="closeBtnCont">
+                <button type="button" class="closeBtn" onclick="hideModal()">
+                    <img src="./images/close.png" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="top" class="s-wrap site-wrapper">
+
+        <header class="s-header">
+
+            <div class="header__top">
+                <div class="header__logo">
+                    <a class="site-logo" href="index.html">
+                        <img src="./images/logo.png" alt="Homepage">
+                    </a>
+                </div>
+            </div> <!-- end header__top -->
+
+            <nav class="header__nav-wrap">
+
+                <ul class="header__nav">
+                    <li class="current"><a href="#" title="">Home</a></li>
+                    <li><a href="#" title="">Newsletter</a></li>
+                    <li><a href="#" title="">Blogs</a></li>
+                    <li><a href="#" title="">About</a></li>
+                    <li><a href="#" title="">Contact</a></li>
+                </ul> <!-- end header__nav -->
+
+                <ul class="header__social">
+                    <li class="ss-facebook">
+                        <a href="https://facebook.com/">
+                            <span class="screen-reader-text">Facebook</span>
+                        </a>
+                    </li>
+                    <li class="ss-twitter">
+                        <a href="#0">
+                            <span class="screen-reader-text">Twitter</span>
+                        </a>
+                    </li>
+                    <li class="ss-instagram">
+                        <a href="#0">
+                            <span class="screen-reader-text">Dribbble</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav> <!-- end header__nav-wrap -->
+
+            <!-- menu toggle -->
+            <a href="#0" class="header__menu-toggle">
+                <span>Menu</span>
+            </a>
+
+        </header> <!-- end s-header -->
+
+        <div class="s-search">
+
+            <div class="search-block">
+
+                <form role="search" method="get" class="search-form" action="#">
+                    <label>
+                        <span class="hide-content">Search for:</span>
+                        <input type="search" class="search-field" placeholder="Type Keywords" value="" name="s"
+                            title="Search for:" autocomplete="off">
+                    </label>
+                    <input type="submit" class="search-submit" value="Search">
+                </form>
+
+                <a href="#0" title="Close Search" class="search-close">Close</a>
+
+            </div> <!-- end search-block -->
+
+            <!-- search modal trigger -->
+            <a href="#0" class="search-trigger">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:">
+                    <path
+                        d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z">
+                    </path>
+                </svg>
+                <span>Search</span>
+            </a>
+            <span class="search-line"></span>
+
+        </div> <!-- end s-search -->
+
+
+        <div class="s-content">
+
+            <!-- <div id="image-carousel" class="splide">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKqHXtefhFlGREBNYVSk0TEdsN6MqV3BKmkA&s" />
+                        </li>
+                        <li class="splide__slide"><img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKqHXtefhFlGREBNYVSk0TEdsN6MqV3BKmkA&s" />
+                        </li>
+                        <li class="splide__slide"><img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKqHXtefhFlGREBNYVSk0TEdsN6MqV3BKmkA&s" />
+                        </li>
+                    </ul>
+                </div>
+            </div> -->
+
+            <div class="category-section hideScrollbar">
+                <div class="category-card">
+                    <div class="imgCont">
+                        <img src="https://cdn.loveandlemons.com/wp-content/uploads/opengraph/2022/12/appetizers.jpg"
+                            alt="">
+                    </div>
+                    <p>APPETIZER</p>
+                </div>
+                <div class="category-card">
+                    <div class="imgCont">
+                        <img src="https://www.drinkpreneur.com/wp-content/uploads/2016/12/drinkpreneur_819_main.jpg"
+                            alt="">
+                    </div>
+                    <p>BEVERAGES</p>
+                </div>
+                <div class="category-card">
+                    <div class="imgCont">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSehbIS2dHz8WsL64lWMycejRwEO8QsKHbo-g&s"
+                            alt="">
+                    </div>
+                    <p>BREAD</p>
+                </div>
+                <div class="category-card">
+                    <div class="imgCont">
+                        <img src="https://www.eatingwell.com/thmb/xzR1INWu-qKNgOqwG4cIMERqsMo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/eat-the-rainbow-chopped-salad-with-basil-mozzarella-beauty-184-278133-4000x4000-ef8f3f0ad7134d2b860c51f5e7b38ce5.jpg"
+                            alt="">
+                    </div>
+                    <p>SALAD</p>
+                </div>
+                <div class="category-card">
+                    <div class="imgCont">
+                        <img src="https://www.connoisseurusveg.com/wp-content/uploads/2024/02/vegetable-noodle-soup-sq.jpg"
+                            alt="">
+                    </div>
+                    <p>SOUP</p>
+                </div>
+                <div class="category-card">
+                    <div class="imgCont">
+                        <img src="https://rufil.in/image/kalakand-sweet-food_57665-11110.jpg" alt="">
+                    </div>
+                    <p>SWEET</p>
+                </div>
+                <div class="category-card">
+                    <div class="imgCont">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8SI6StozIqGQs2cCrQ1xBtO5nvEr5w-m0Uw&s"
+                            alt="">
+                    </div>
+                    <p>VEGAN</p>
+                </div>
+            </div>
+
+            <div class="masonry-wrap">
+
+                <div class="masonry">
+
+                    <div class="grid-sizer"></div>
+
+                    <article class="masonry__brick entry format-standard animate-this">
+
+                        <div class="entry__thumb">
+                            <a href="#" class="entry__thumb-link">
+                                <img src="./images/recipesImage/authentic-italian-pasta-sauce-3.jpg" srcset="" alt="">
+                            </a>
+                        </div>
+
+                        <div class="entry__text">
+                            <div class="entry__header">
+
+                                <h2 class="entry__title"><a href="">The Secret Behind Authentic
+                                        Italian Pasta Sauces</a>
+                                </h2>
+                                <div class="entry__meta">
+                                    <span class="entry__meta-cat">
+                                        <a href="#">Italian</a>
+                                    </span>
+                                    <span class="entry__meta-date">
+                                        <a href="">Apr 29, 2019</a>
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="entry__excerpt">
+                                <p>
+                                    Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et
+                                    sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia
+                                    aute incididunt velit sint in aliqua...
+                                </p>
+                            </div>
+                        </div>
+
+                    </article>
+                    <article class="masonry__brick entry format-standard animate-this">
+
+                        <div class="entry__thumb">
+                            <a href="#" class="entry__thumb-link">
+                                <img src="https://kitchenofdebjani.com/wp-content/uploads/2023/04/easy-indian-chicken-curry-Recipe-for-beginners-Debjanir-rannaghar.jpg"
+                                    srcset="" alt="">
+                            </a>
+                        </div>
+
+                        <div class="entry__text">
+                            <div class="entry__header">
+
+                                <h2 class="entry__title"><a href="">Spice it Right: A Beginner’s Guide to Indian
+                                        Curries</a>
+                                </h2>
+                                <div class="entry__meta">
+                                    <span class="entry__meta-cat">
+                                        <a href="#">Indian</a>
+                                    </span>
+                                    <span class="entry__meta-date">
+                                        <a href="">Apr 29, 2019</a>
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="entry__excerpt">
+                                <p>
+                                    Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et
+                                    sit proident dolor nulla sed commodo est ad
+                                </p>
+                            </div>
+                        </div>
+
+                    </article>
+                    <article class="masonry__brick entry format-standard animate-this">
+
+                        <div class="entry__thumb">
+                            <a href="#" class="entry__thumb-link">
+                                <img src="./images/recipesImage/Summer-Berry-Lasagna-featured-new.jpg" srcset="" alt="">
+                            </a>
+                        </div>
+
+                        <div class="entry__text">
+                            <div class="entry__header">
+
+                                <h2 class="entry__title"><a href="">5 Heavenly No-Bake Desserts to Try This Summer</a>
+                                </h2>
+                                <div class="entry__meta">
+                                    <span class="entry__meta-cat">
+                                        <a href="#">DESSERTS</a>
+                                    </span>
+                                    <span class="entry__meta-date">
+                                        <a href="">Apr 29, 2019</a>
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="entry__excerpt">
+                                <p>
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit cumque corrupti
+                                    debitis nobis, eligendi earum quos officia sapiente.
+                                </p>
+                            </div>
+                        </div>
+
+                    </article>
+                    <article class="masonry__brick entry format-standard animate-this">
+
+                        <div class="entry__thumb">
+                            <a href="#" class="entry__thumb-link">
+                                <img src="./images/recipesImage/what-is-a-vegan-diet-benefits-food-list-beginners-guide-alt-1440x810.jpg"
+                                    srcset="" alt="">
+                            </a>
+                        </div>
+
+                        <div class="entry__text">
+                            <div class="entry__header">
+
+                                <h2 class="entry__title"><a href="">Plant-Powered Plates: Easy Vegan Meals for the
+                                        Week</a>
+                                </h2>
+                                <div class="entry__meta">
+                                    <span class="entry__meta-cat">
+                                        <a href="#">VEGAN</a>
+                                    </span>
+                                    <span class="entry__meta-date">
+                                        <a href="">Apr 29, 2019</a>
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="entry__excerpt">
+                                <p>
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit cumque corrupti
+                                    debitis nobis, eligendi earum quos officia sapiente.
+                                </p>
+                            </div>
+                        </div>
+
+                    </article>
+                    <article class="masonry__brick entry format-standard animate-this">
+
+                        <div class="entry__thumb">
+                            <a href="#" class="entry__thumb-link">
+                                <img src="https://images.squarespace-cdn.com/content/v1/58939a42d2b857c51ea91c0d/1566319942248-0GYBX3V9DUH8CU66ZE6V/bloody+mary+obsessed+one+pan+healthy+and+simple+breakfast+recipe+4.jpg"
+                                    srcset="" alt="">
+                            </a>
+                        </div>
+
+                        <div class="entry__text">
+                            <div class="entry__header">
+
+                                <h2 class="entry__title"><a href="">10 Wholesome Breakfast Ideas That Aren’t Boring</a>
+                                </h2>
+                                <div class="entry__meta">
+                                    <span class="entry__meta-cat">
+                                        <a href="#">BREAKFAST</a>
+                                    </span>
+                                    <span class="entry__meta-date">
+                                        <a href="">Apr 29, 2019</a>
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="entry__excerpt">
+                                <p>
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit cumque corrupti
+                                    debitis nobis, eligendi earum quos officia sapiente.
+                                </p>
+                            </div>
+                        </div>
+
+                    </article>
+                    <article class="masonry__brick entry format-standard animate-this">
+
+                        <div class="entry__thumb">
+                            <a href="#" class="entry__thumb-link">
+                                <img src="./images/recipesImage/photo-1623689046286-01d812cc8bad.jpeg" srcset="" alt="">
+                            </a>
+                        </div>
+
+                        <div class="entry__text">
+                            <div class="entry__header">
+
+                                <h2 class="entry__title"><a href="">Stir-Fry 101: Making Chinese Takeout at Home</a>
+                                </h2>
+                                <div class="entry__meta">
+                                    <span class="entry__meta-cat">
+                                        <a href="#">CHINESE</a>
+                                    </span>
+                                    <span class="entry__meta-date">
+                                        <a href="">Apr 29, 2019</a>
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="entry__excerpt">
+                                <p>
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit cumque corrupti
+                                    debitis nobis, eligendi earum quos officia sapiente.
+                                </p>
+                            </div>
+                        </div>
+
+                    </article>
+                    <article class="masonry__brick entry format-standard animate-this">
+
+                        <div class="entry__thumb">
+                            <a href="#" class="entry__thumb-link">
+                                <img src="./images/recipesImage/how-to-make-mozzarella-sticks-6514c6b664773.jpg"
+                                    srcset="" alt="">
+                            </a>
+                        </div>
+
+                        <div class="entry__text">
+                            <div class="entry__header">
+
+                                <h2 class="entry__title"><a href="">Crispy, Crunchy, Addictive: Homemade Snack Ideas</a>
+                                </h2>
+                                <div class="entry__meta">
+                                    <span class="entry__meta-cat">
+                                        <a href="#">SNACKS</a>
+                                    </span>
+                                    <span class="entry__meta-date">
+                                        <a href="">Apr 29, 2019</a>
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="entry__excerpt">
+                                <p>
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit cumque corrupti
+                                    debitis nobis, eligendi earum quos officia sapiente.
+                                </p>
+                            </div>
+                        </div>
+
+                    </article>
+
+                </div> <!-- end masonry -->
+
+            </div> <!-- end masonry-wrap -->
+
+            <div class="row">
+                <div class="column large-full">
+                    <nav class="pgn">
+                        <ul>
+                            <li><a class="pgn__prev" href="#0">Prev</a></li>
+                            <li><a class="pgn__num" href="#0">1</a></li>
+                            <li><span class="pgn__num current">2</span></li>
+                            <li><a class="pgn__num" href="#0">3</a></li>
+                            <li><a class="pgn__num" href="#0">4</a></li>
+                            <li><a class="pgn__num" href="#0">5</a></li>
+                            <li><span class="pgn__num dots">…</span></li>
+                            <li><a class="pgn__num" href="#0">8</a></li>
+                            <li><a class="pgn__next" href="#0">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+        </div> <!-- end s-content -->
+
+        <footer class="s-footer">
+            <div class="row">
+                <div class="column large-full footer__content">
+                    <div class="footer__copyright">
+                        <span>© Copyright Frycuisine 2025</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top"></a>
+            </div>
+        </footer>
+
+    </div> <!-- end s-wrap -->
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <!-- Splide JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js"></script>
+    <script>
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     new Splide('#image-carousel', {
+        //         type: 'loop',
+        //         perPage: 3,
+        //         focus: 'center',
+        //         autoplay: true,
+        //         arrows: false,
+        //         pagination: false,
+        //         autoplaySpeed: 3000
+        //     }).mount();
+        // });
+
+        const modal = document.querySelector('.modal')
+        const closeBtn = document.querySelector('.closeBtn')
+
+        setTimeout(() => {
+            modal.style.display = 'block'
+        }, 2000)
+
+        function hideModal() {
+            modal.style.display = 'none'
+            console.log('hii')
+        }
+
+    </script>
+
+</body>
