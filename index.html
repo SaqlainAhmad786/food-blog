@@ -252,6 +252,40 @@
             }
         }
 
+        .slider-card {
+            text-align: center;
+        }
+
+        .slider-card .img-cont {
+            width: 100%;
+            height: 360px;
+        }
+
+        .slider-card .img-cont img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-card .text-cont {
+            margin-top: 8px;
+            font-size: 22px;
+            font-weight: 300;
+        }
+
+        .slider-card .text-cont p {
+            margin-bottom: 0px;
+        }
+
+        .slider-card .text-cont .tags {
+            font-size: 14px;
+            color: whitesmoke;
+            background-color: #3C3D37;
+            padding: 4px;
+            border-radius: 8px;
+        }
+
+
         @media (width<1200px) {
 
             .bottom-sect {
@@ -386,22 +420,54 @@
 
         <div class="s-content">
 
-            <!-- <div id="image-carousel" class="splide">
+            <div id="image-carousel" class="splide">
                 <div class="splide__track">
                     <ul class="splide__list">
                         <li class="splide__slide">
-                            <img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKqHXtefhFlGREBNYVSk0TEdsN6MqV3BKmkA&s" />
+                            <div class="slider-card">
+                                <div class="img-cont">
+                                    <img
+                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKqHXtefhFlGREBNYVSk0TEdsN6MqV3BKmkA&s" />
+                                </div>
+                                <div class="text-cont">
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                    <span class="tags">TAGS</span>
+                                    <span class="tags">TAGS</span>
+                                    <span class="tags">TAGS</span>
+                                </div>
+                            </div>
                         </li>
-                        <li class="splide__slide"><img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKqHXtefhFlGREBNYVSk0TEdsN6MqV3BKmkA&s" />
+                        <li class="splide__slide">
+                            <div class="slider-card">
+                                <div class="img-cont">
+                                    <img
+                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKqHXtefhFlGREBNYVSk0TEdsN6MqV3BKmkA&s" />
+                                </div>
+                                <div class="text-cont">
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                    <span class="tags">TAGS</span>
+                                    <span class="tags">TAGS</span>
+                                    <span class="tags">TAGS</span>
+                                </div>
+                            </div>
                         </li>
-                        <li class="splide__slide"><img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKqHXtefhFlGREBNYVSk0TEdsN6MqV3BKmkA&s" />
+                        <li class="splide__slide">
+                            <div class="slider-card">
+                                <div class="img-cont">
+                                    <img
+                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKqHXtefhFlGREBNYVSk0TEdsN6MqV3BKmkA&s" />
+                                </div>
+                                <div class="text-cont">
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                    <span class="tags">TAGS</span>
+                                    <span class="tags">TAGS</span>
+                                    <span class="tags">TAGS</span>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
-            </div> -->
+            </div>
 
             <div class="category-section hideScrollbar">
                 <div class="category-card">
@@ -833,17 +899,36 @@
     <!-- Splide JS -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js"></script>
     <script>
-        // document.addEventListener('DOMContentLoaded', function () {
-        //     new Splide('#image-carousel', {
-        //         type: 'loop',
-        //         perPage: 3,
-        //         focus: 'center',
-        //         autoplay: true,
-        //         arrows: false,
-        //         pagination: false,
-        //         autoplaySpeed: 3000
-        //     }).mount();
-        // });
+        document.addEventListener('DOMContentLoaded', function () {
+            new Splide('#image-carousel', {
+                type: 'loop',
+                perPage: 3,
+                focus: 'center',
+                autoplay: {
+                    delay: 3000,
+                },
+                arrows: false,
+                pagination: false,
+                breakpoints: {
+                    1200: {
+                        perPage: 3,
+                    },
+                    1100: {
+                        perPage: 4,
+                    },
+                    900: {
+                        perPage: 3,
+                    },
+                    768: {
+                        perPage: 2,
+                    },
+                    568: {
+                        perPage: 1,
+                    },
+
+                }
+            }).mount();
+        });
 
         const modal = document.querySelector('.modal')
         const closeBtn = document.querySelector('.closeBtn')
