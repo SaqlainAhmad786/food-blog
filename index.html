@@ -152,6 +152,122 @@
         .category-card p {
             font-weight: 300;
         }
+
+        .cta-section {
+            text-align: center;
+            padding-bottom: 3.2rem;
+        }
+
+        .cta-section .hero-text {
+            font-weight: 300;
+            font-size: 40px;
+            margin-bottom: 0;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .cta-section .hero-subtext {
+            font-weight: 300;
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+
+        .inputMainCont {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cta-section .inputCont {
+            display: flex;
+            gap: 4px;
+            padding: 4px;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(0, 0, 0, 0.4);
+            border-radius: 100vh;
+        }
+
+        .cta-section .inputCont input {
+            all: unset;
+            width: 280px;
+
+            &::placeholder {
+                color: rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        .cta-section .inputCont button {
+            all: unset;
+            cursor: pointer;
+            background-color: #3C3D37;
+            padding: 4px 12px;
+            border-radius: 100vh;
+            color: whitesmoke;
+            font-size: 14px;
+        }
+
+        .cta-section .checkCont {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 16px;
+        }
+
+        .cta-section .checkCont label {
+            margin-bottom: 0;
+        }
+
+        .cta-section .checkCont input {
+            margin-bottom: 0;
+        }
+
+        .bottom-sect {
+            background-image: url(https://chatore.co.in/wp-content/uploads/2023/06/bg.png);
+            background-position: bottom;
+            background-size: cover;
+            height: 280px;
+            position: relative;
+            margin-left: 270px;
+        }
+
+        .bottom-sect .sticker {
+            display: inline-block;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            opacity: 0.75;
+            padding: 34px 24px;
+            border-radius: 100vh;
+
+            p {
+                margin: 0;
+                line-height: 1.1;
+                text-align: center;
+                font-size: 14px;
+            }
+        }
+
+        @media (width<1200px) {
+
+            .bottom-sect {
+                margin-left: 0;
+            }
+        }
+
+        @media (width<568px) {
+            .cta-section {
+                padding-inline: 20px;
+            }
+
+            .cta-section .inputCont input {
+                width: 200px;
+            }
+        }
     </style>
 
 </head>
@@ -649,6 +765,22 @@
 
             </div> <!-- end masonry-wrap -->
 
+            <div class="cta-section">
+                <p class="hero-text">Never miss a recipe!</p>
+                <p class="hero-subtext">Join thousands of TinySalt subscribers and get our best recipes delivered each
+                    week!</p>
+                <div class="inputMainCont">
+                    <div class="inputCont">
+                        <input type="text" placeholder="Enter your Email address" name="" id="">
+                        <button>SUBSCRIBE</button>
+                    </div>
+                    <div class="checkCont">
+                        <input type="checkbox" name="" id="">
+                        <label for="">I have read and agree to the <a href="">terms & conditions</a>.</label>
+                    </div>
+                </div>
+            </div>
+
             <!-- <div class="row">
                 <div class="column large-full">
                     <nav class="pgn">
@@ -667,12 +799,19 @@
                 </div>
             </div> -->
 
-        </div> <!-- end s-content -->
+        </div>
 
-        <!-- <footer class="s-footer">
+        <div class="bottom-sect">
+            <a class="sticker">
+                <p>Follow us <br> on <br> Instagram</p>
+            </a>
+        </div>
+
+        <footer class="s-footer">
             <div class="row">
                 <div class="column large-full footer__content">
                     <div class="footer__copyright">
+                        <span>Cooked & Write with ❤️ by Frycuisine</span>
                         <span>© Copyright Frycuisine 2025</span>
                     </div>
                 </div>
@@ -681,7 +820,7 @@
             <div class="go-top">
                 <a class="smoothscroll" title="Back to Top" href="#top"></a>
             </div>
-        </footer> -->
+        </footer>
 
     </div> <!-- end s-wrap -->
 
@@ -709,9 +848,9 @@
         const modal = document.querySelector('.modal')
         const closeBtn = document.querySelector('.closeBtn')
 
-        setTimeout(() => {
-            modal.style.display = 'block'
-        }, 2000)
+        // setTimeout(() => {
+        //     modal.style.display = 'block'
+        // }, 2000)
 
         function hideModal() {
             modal.style.display = 'none'
